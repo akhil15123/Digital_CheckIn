@@ -1,0 +1,102 @@
+{% extends "admin/sidebar.html" %}
+{% load static %}
+
+{% block content %}
+
+<div class="container-fluid pt-4 px-4">
+
+    <!-- Summary Cards -->
+    <div class="row g-4 mb-4">
+        <div class="col-sm-6 col-xl-4">
+            <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
+                <i class="fa fa-users fa-3x text-primary"></i>
+                <div class="ms-3">
+                    <p class="mb-2">Total Active Employees</p>
+                    <h6 class="mb-0">{{ total_employees }}</h6>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-xl-4">
+            <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
+                <i class="fa fa-check-circle fa-3x text-success"></i>
+                <div class="ms-3">
+                    <p class="mb-2">Present Today</p>
+                    <h6 class="mb-0">{{ present }}</h6>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-xl-4">
+            <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
+                <i class="fa fa-times-circle fa-3x text-danger"></i>
+                <div class="ms-3">
+                    <p class="mb-2">Absent Today</p>
+                    <h6 class="mb-0">{{ absent }}</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Attendance Charts -->
+    <div class="row g-4 mb-4">
+        <div class="col-xl-6">
+            <div class="bg-light text-center rounded p-4">
+                <h6 class="mb-3">Week Attendance</h6>
+                <canvas id="weeklyAttendanceChart"></canvas>
+            </div>
+        </div>
+        <div class="col-xl-6">
+            <div class="bg-light text-center rounded p-4">
+                <h6 class="mb-3">Month Attendance</h6>
+                <canvas id="monthlyAttendanceChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <!-- Widgets Section -->
+    <div class="row g-4">
+
+        <!-- Recent Attendance -->
+        <div class="col-md-6 col-xl-4">
+            <div class="bg-light rounded p-4 h-100">
+                <h6 class="mb-3 d-flex justify-content-between">
+                    Recent Attendance <a href="#">Show All</a>
+                </h6>
+                <div class="border-bottom py-2">
+                    <div class="d-flex justify-content-between">
+                        <span>Reethu Karnati</span>
+                        <small>15 minutes ago</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recent Apologies -->
+        <div class="col-md-6 col-xl-4">
+            <div class="bg-light rounded p-4 h-100">
+                <h6 class="mb-3 d-flex justify-content-between">
+                    Recent Apologies <a href="#">Show All</a>
+                </h6>
+                <div class="border-bottom py-2">
+                    <div class="d-flex justify-content-between">
+                        <span>Reethu Karnati</span>
+                        <small>15 minutes ago</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Calendar -->
+        <div class="col-md-12 col-xl-4">
+            <div class="bg-light rounded p-4 h-100">
+                <h6 class="mb-3 d-flex justify-content-between">
+                    Calendar <a href="#">Show All</a>
+                </h6>
+                <div id="calender"></div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock content %}

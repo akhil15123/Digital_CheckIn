@@ -1,0 +1,31 @@
+{% extends "admin/sidebar.html" %}
+{% load static %}
+{% block content %}
+
+<div class="container-fluid pt-4 px-4">
+    <div class="row g-4 justify-content-center">
+        <div class="col-12 col-sm-10 col-md-8 col-lg-6">
+            <div class="bg-light rounded p-5 shadow">
+                <h3 class="mb-4 text-center">Add New Department</h3>
+
+                <form method="POST">
+                    {% csrf_token %}
+
+                    <!-- Department Name -->
+                    <div class="form-floating mb-3">
+                        {{ form.name }}
+                        <label for="id_name">Department Name</label>
+                        {% if form.name.errors %}
+                            <div class="text-danger mt-1">{{ form.name.errors.0 }}</div>
+                        {% endif %}
+                    </div>
+
+                    <button type="submit" class="btn btn-primary w-100 py-3">Add Department</button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

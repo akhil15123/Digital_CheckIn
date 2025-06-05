@@ -1,0 +1,116 @@
+{% extends "admin/sidebar.html" %}
+{% load static %}
+
+{% block content %}
+
+<div class="container-fluid pt-4 px-4">
+    <div class="row g-4 justify-content-center">
+        <div class="col-12 col-sm-10 col-md-10 col-lg-8 col-xl-8">
+            <div class="bg-light rounded h-100 p-5 shadow">
+                <h3 class="mb-4 text-center">{{ title }}</h3>
+
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+
+                    <!-- Username -->
+                    <div class="form-floating mb-3">
+                        {{ form.username }}
+                        <label for="id_username">Username</label>
+                        {% if form.username.errors %}
+                            <div class="text-danger">{{ form.username.errors.0 }}</div>
+                        {% endif %}
+                    </div>
+
+                    <!-- First Name -->
+                    <div class="form-floating mb-3">
+                        {{ form.first_name }}
+                        <label for="id_first_name">First Name</label>
+                        {% if form.first_name.errors %}
+                            <div class="text-danger">{{ form.first_name.errors.0 }}</div>
+                        {% endif %}
+                    </div>
+
+                    <!-- Last Name -->
+                    <div class="form-floating mb-3">
+                        {{ form.last_name }}
+                        <label for="id_last_name">Last Name</label>
+                        {% if form.last_name.errors %}
+                            <div class="text-danger">{{ form.last_name.errors.0 }}</div>
+                        {% endif %}
+                    </div>
+
+                    <!-- Email -->
+                    <div class="form-floating mb-3">
+                        {{ form.email }}
+                        <label for="id_email">Email</label>
+                        {% if form.email.errors %}
+                            <div class="text-danger">{{ form.email.errors.0 }}</div>
+                        {% endif %}
+                    </div>
+
+                    <!-- Password -->
+                    <div class="form-floating mb-3">
+                        {{ form.password }}
+                        <label for="id_password">Password</label>
+                        {% if form.password.errors %}
+                            <div class="text-danger">{{ form.password.errors.0 }}</div>
+                        {% endif %}
+                    </div>
+
+                    <!-- Profile Image -->
+                    <div class="mb-3">
+                        <label for="id_profile_image" class="form-label">Profile Image</label><br>
+                        {% if employee.user.profile.profile_image %}
+                            <img src="{{ employee.user.profile.profile_image.url }}" alt="Profile Image" width="100" height="100" class="mb-2 rounded-circle">
+                        {% endif %}
+                        {{ form.profile_image }}
+                        {% if form.profile_image.errors %}
+                            <div class="text-danger">{{ form.profile_image.errors.0 }}</div>
+                        {% endif %}
+                    </div>
+
+                    <!-- Contact -->
+                    <div class="form-floating mb-3">
+                        {{ form.contact }}
+                        <label for="id_contact">Contact Number</label>
+                        {% if form.contact.errors %}
+                            <div class="text-danger">{{ form.contact.errors.0 }}</div>
+                        {% endif %}
+                    </div>
+
+                    <!-- Department -->
+                    <div class="form-floating mb-3">
+                        {{ form.dep }}
+                        <label for="id_dep">Department</label>
+                        {% if form.dep.errors %}
+                            <div class="text-danger">{{ form.dep.errors.0 }}</div>
+                        {% endif %}
+                    </div>
+
+                    <!-- Role -->
+                    <div class="form-floating mb-3">
+                        {{ form.role }}
+                        <label for="id_role">Role</label>
+                        {% if form.role.errors %}
+                            <div class="text-danger">{{ form.role.errors.0 }}</div>
+                        {% endif %}
+                    </div>
+
+                    <!-- Status -->
+                    <div class="form-floating mb-3">
+                        {{ form.status }}
+                        <label for="id_status">Status</label>
+                        {% if form.status.errors %}
+                            <div class="text-danger">{{ form.status.errors.0 }}</div>
+                        {% endif %}
+                    </div>
+
+                    <button type="submit" class="btn btn-primary w-100 py-3 mt-3">Submit</button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

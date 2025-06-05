@@ -1,0 +1,44 @@
+{% extends "admin/sidebar.html" %}
+{% block content %}
+{% load static %}
+
+<div class="container-fluid pt-4 px-4">
+    <div class="bg-light rounded p-4">
+        <h4 class="mb-4 text-center">Attendance Records</h4>
+
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped table-hover align-middle">
+                <thead class="table-primary text-center">
+                    <tr>
+                        <th>Employee Name</th>
+                        <th>Department</th>
+                        <th>Date</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for attendance in attendances %}
+                        <tr class="text-center">
+                            <td>{{ attendance.emp.user.first_name }} {{ attendance.emp.user.last_name }}</td>
+                            <td>{{ attendance.emp.dep.name }}</td>
+                            <td>{{ attendance.date|date:"M d, Y" }}</td>
+                            <td>
+                                {% if attendance.status == 'Present' %}
+                                    <span class="badge bg-success">{{ attendance.status }}</span>
+                                {% else %}
+                                    <span class="badge bg-danger">{{ attendance.status }}</span>
+                                {% endif %}
+                            </td>
+                        </tr>
+                    {% empty %}
+                        <tr>
+                            <td colspan="4" class="text-center">No attendance records found.</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
