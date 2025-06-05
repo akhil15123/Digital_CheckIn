@@ -174,7 +174,7 @@ digital-checkin/
 
 ## **Contributors**
 
-* **Your Name** – Initial development and design.
+* **Akhil Bonthinayanivari** – Initial development and design.
 
 Feel free to contribute to this project by forking it and submitting pull requests.
 
