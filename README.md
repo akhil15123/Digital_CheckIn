@@ -58,7 +58,7 @@ Admins have a dashboard that shows employee details, attendance records, and all
 Clone the repository from GitHub:
 
 ```bash
-git clone https://github.com/your-username/digital-checkin.git
+[git clone https://github.com/your-username/digital-checkin.git](https://github.com/akhil15123/Digital_CheckIn.git)
 ```
 
 ### **Step 2: Install Python and Dependencies**
